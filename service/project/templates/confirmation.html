@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #FF4500;
+   color: white;
+   text-align: center;
+}
+</style>
+</head>
+<body>
+<H1>Welcome to super codeur training session!</H1>
+<img src="img/orange.png">   <img src="img/caysti.png">
+<br>
+<h3>you paramters to login for this session are:</h3>
+<hr>
+<h6>Login: {{ login }}</h6>
+<h6>Password: {{ password }}</h6>
+<p>Link: <a href="{{ caysti_url }}">{{ caysti_url }}</a></p>
+<p>Regards!</p>
+<p>Caysti Training Team</p>
+
+<div class="footer">
+  <p>Powered by Caysti@2020</p>
+</div>
+</body>
+</html>
