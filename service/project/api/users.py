@@ -46,16 +46,19 @@ def load_email_and_send():
         filename = secure_filename(file.filename)
         file.save(os.path.join(current_app.config['UPLOAD_FOLDER'], filename))
         csv_file = os.path.join(current_app.config['UPLOAD_FOLDER'], filename)
-        with open(csv_file, 'r') as f:
+        with open(csv_file, 'r', encoding="ISO-8859-1") as f:
             data = f.readlines()
         for line in data:
+            current_app.logger.info(line)
             elt = line.split(';')
-            login_url = elt[0]
-            password = elt[1]
-            email = elt[2]
-            send_confirmation_email(email, login_url, password)
+            login = elt[0]
+            password = elt[2]
+            email = elt[1]
+            father_name = elt[3]
+            current_app.logger.info(f'==========my email==={email}')
+            send_confirmation_email(email, login, password, father_name)
         response_object['message'] = "Emails were send success fully."
-        response_object['success'] = 'success.'
+        response_object['status'] = 'success.'
         return jsonify(response_object), 200
     else:
         response_object['message'] = 'Wrong file format.'

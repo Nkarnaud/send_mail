@@ -9,7 +9,7 @@ from flask_mail import Mail
 mail = Mail()
 UPLOAD_FOLDER = '/usr/src/app/project/audio_files/'
 ALLOWED_EXTENSIONS = {'csv'}
-MAIL_SENDER = 'mycaysti.supercodeurs@gmail.com'
+MAIL_SENDER = 'your.mail@example.com'
 
 
 # App initialisation
@@ -27,12 +27,11 @@ def create_app(script_info=None):
 
     # setting the smtp server
     app.config.update(dict(
-        MAIL_SERVER='smtp.gmail.com',
-        MAIL_PORT=465,
-        MAIL_USE_TLS=False,
-        MAIL_USE_SSL=True,
-        MAIL_USERNAME='softwaresmart20@gmail.com',
-        MAIL_PASSWORD='codeur.caysti12'
+        MAIL_SERVER='mail.example.com',
+        MAIL_PORT=26,
+        MAIL_USE_SSL=None,
+        MAIL_USERNAME='your.mail@example.com',
+        MAIL_PASSWORD='password'
     ))
 
     # set up extensions

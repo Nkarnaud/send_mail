@@ -98,15 +98,16 @@ def send_email(to, subject, template):
 
     """
     msg = Message(subject, sender=app.config['MAIL_SENDER'], recipients=[to], html=template,
-                  bcc='rfetcheping@caysti.com')
+                  bcc=['xxx@mail.com'])
+    app.logger.info("======={}".format(to))
     mail.send(msg)
 
 
-def send_confirmation_email(to, login_url, password):
+def send_confirmation_email(to, login_url, password, father_name):
     """
-
     Send a confirmation email to the registered user.
 
     """
-    html = render_template('confirmation.html', login_url=login_url, password=password)
-    send_email(to, 'Your supercodeur acciount credentials.', html)
+    html = render_template('confirmation.html', login=login_url, password=password, father_name=father_name)
+    subject = 'Votre Compte Suppercodeur.'
+    send_email(to, subject, html)
